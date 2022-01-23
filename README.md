@@ -1,6 +1,6 @@
 # Vue Crash Course (Task Tracker)
 
-> This is the project from the YouTube crash course
+> This is a mini project for adding and tracking tasks
 
 ## Project setup
 
