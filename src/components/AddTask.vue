@@ -1,12 +1,17 @@
 <template>
   <form @submit="onSubmit" class="add-form">
     <div class="form-control">
-      <label>Task name</label>
-      <input type="text" v-model="text" name="text" placeholder="Add task name here" />
+      <label>Task</label>
+      <input type="text" v-model="text" name="text" placeholder="Add Task" />
     </div>
     <div class="form-control">
-        <label>Day & Time</label>
-      <input type="text" v-model="day" name="day" placeholder="Add day & time here" />
+      <label>Day & Time</label>
+      <input
+        type="text"
+        v-model="day"
+        name="day"
+        placeholder="Add Day & Time"
+      />
     </div>
     <div class="form-control form-control-check">
       <label>Set Reminder</label>
@@ -26,26 +31,26 @@ export default {
       day: '',
       reminder: false,
     }
-  }, 
+  },
   methods: {
-    onSubmit(e) { //pass in our event object here
-      e.preventDefault() //prevent default from happening
+    onSubmit(e) {
+      e.preventDefault()
 
-      if (!this.text) { //to do a validation here
+      if (!this.text) {
         alert('Please add a task')
         return
       }
 
       const newTask = {
-        // id: Math.floor(Math.random() * 114514)
-        text: this.text, //whatever in the form
+        // id: Math.floor(Math.random() * 100000),
+        text: this.text,
         day: this.day,
         reminder: this.reminder,
       }
-      
+
       this.$emit('add-task', newTask)
 
-      this.text = '' //clear up the form
+      this.text = ''
       this.day = ''
       this.reminder = false
     },

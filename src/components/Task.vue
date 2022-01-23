@@ -1,49 +1,44 @@
 <template>
-<div @dblclick="$emit('toggle-reminder', task.id)" :class="[task.reminder ? 'reminder' : '', 'task']">
-    <h3> 
-        {{task.text}}
-        <button class="delete-button" @click="$emit('delete-task', task.id)">
-            <i class="fas fa-times"></i>
-        </button>
+  <div
+    @dblclick="$emit('toggle-reminder', task.id)"
+    :class="[task.reminder ? 'reminder' : '', 'task']"
+  >
+    <h3>
+      {{ task.text }}
+      <i @click="$emit('delete-task', task.id)" class="fas fa-times"></i>
     </h3>
-    <p> {{task.day}} </p>
-</div>
-    
+    <p>{{ task.day }}</p>
+  </div>
 </template>
 
 <script>
 export default {
-    name: 'Task', 
-    props: {
-        task: Object
-    }
+  name: 'Task',
+  props: {
+    task: Object,
+  },
 }
 </script>
 
-<style scoped>
-.delete-button {
-    border: hidden;
-    color: red;
-}
-
-.delete-button :hover {
-    cursor: pointer;
-    transform: scale(1.12);
+<style scope>
+.fas {
+  color: red;
 }
 
 .task {
-    background: #f4f4f4;
-    margin: 5px;
-    padding: 10px 20px;
+  background: #f4f4f4;
+  margin: 5px;
+  padding: 10px 20px;
+  cursor: pointer;
 }
 
 .task.reminder {
-    border-left: 5px solid green;
+  border-left: 5px solid green;
 }
 
 .task h3 {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
 }
 </style>
